@@ -30,7 +30,7 @@ import sip
 
 class bladeRF_fifo_rx(gr.top_block, Qt.QWidget):
 
-    def __init__(self, frequency=1e9, sample_rate=2000000):
+    def __init__(self, frequency=1e9, sample_rate=20e6):
         gr.top_block.__init__(self, "bladeRF FIFO RX", catch_exceptions=True)
         Qt.QWidget.__init__(self)
         self.setWindowTitle("bladeRF FIFO RX")
@@ -112,10 +112,10 @@ class bladeRF_fifo_rx(gr.top_block, Qt.QWidget):
             self.top_grid_layout.setRowStretch(r, 1)
         for c in range(0, 8):
             self.top_grid_layout.setColumnStretch(c, 1)
-        self.blocks_throttle2_0 = blocks.throttle( gr.sizeof_gr_complex*1, 10e6, True, 0 if "auto" == "auto" else max( int(float(0.1) * 10e6) if "auto" == "time" else int(0.1), 1) )
+        self.blocks_throttle2_0 = blocks.throttle( gr.sizeof_gr_complex*1, 20e6, True, 0 if "auto" == "auto" else max( int(float(0.1) * 20e6) if "auto" == "time" else int(0.1), 1) )
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_cc((1.0 / 2048.0))
         self.blocks_interleaved_short_to_complex_0 = blocks.interleaved_short_to_complex(True, False,1.0)
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_short*2, '/home/viktor/Documents/rir/data/bob_rx1_1GHz_1MHz_-40_20.iqbin', True, 0, 0)
+        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_short*2, '/home/viktor/Documents/rir/src/test.iqbin', True, 0, 0)
         self.blocks_file_source_0.set_begin_tag(pmt.PMT_NIL)
 
 
@@ -173,7 +173,7 @@ def argument_parser():
         "--frequency", dest="frequency", type=eng_float, default=eng_notation.num_to_str(float(1e9)),
         help="Set Frequency [default=%(default)r]")
     parser.add_argument(
-        "-s", "--sample-rate", dest="sample_rate", type=eng_float, default=eng_notation.num_to_str(float(2000000)),
+        "-s", "--sample-rate", dest="sample_rate", type=eng_float, default=eng_notation.num_to_str(float(20e6)),
         help="Set Sample Rate [default=%(default)r]")
     return parser
 

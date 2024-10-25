@@ -52,7 +52,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [576, 128.0]
+    coordinate: [720, 128.0]
     rotation: 0
     state: enabled
 - name: sample_rate_range
@@ -73,7 +73,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [424, 152.0]
+    coordinate: [552, 112.0]
     rotation: 0
     state: enabled
 - name: blocks_file_source_0
@@ -83,7 +83,7 @@ blocks:
     alias: ''
     begin_tag: pmt.PMT_NIL
     comment: ''
-    file: /home/viktor/Documents/rir/data/bob_rx1_1GHz_1MHz_-40_20.iqbin
+    file: /home/viktor/Documents/rir/src/test.iqbin
     length: '0'
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -145,14 +145,14 @@ blocks:
     maximum: '0.1'
     maxoutbuf: '0'
     minoutbuf: '0'
-    samples_per_second: 10e6
+    samples_per_second: 20e6
     type: complex
     vlen: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [472, 384.0]
+    coordinate: [488, 400.0]
     rotation: 0
     state: enabled
 - name: frequency
@@ -169,7 +169,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [256, 160.0]
+    coordinate: [360, 88.0]
     rotation: 0
     state: enabled
 - name: qtgui_sink_x_0
@@ -210,12 +210,12 @@ blocks:
     label: Sample Rate
     short_id: s
     type: eng_float
-    value: '2000000'
+    value: 20e6
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [72, 136.0]
+    coordinate: [40, 112.0]
     rotation: 0
     state: enabled
 
